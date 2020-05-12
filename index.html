@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="title">
+                <h1 id='testing-fade'>Random League</h1>
+            </div>
+            <div class="sidebar" id="sidebar-remove">
+              <span class="span-class">
+                  Pick a team: <br><br>
+                  <input type="text" siz="32" name="textbox" id="textbox">
+              </span> 
+              <span class="span-class" id="remove-orig-button">
+                  Choose between:<br><br>
+                  <button onclick="clickOriginal()" class="orig" id="button">Original</button> <button onclick="clickBaseball()" class="base" id="button-two">Baseball</button>
+              </span>
+              <span class="span-class" id="start-sidebar">
+                Then press: <br><br>
+                <button onclick="clickStart()" id="button">Start</button>
+              </span>
+            </div>
+            
+            <div class="standings" id="leaderboard">
+                    <table id="table">
+                            <tr>
+                              <th scope="col" class="position" id="baseball-table" onclick="leaderBoards()"></th>
+                              <th scope="col" class="teams"></th>
+                              <th scope="col">W</th>
+                              <th scope="col">L</th>
+                              <th scope="col">Skill</th>
+                              <th scope="col">Points</th>
+                              <th scope="col">Form</th>
+                              <th scope="col">Game</th>
+                            </tr>
+                            <td class="test"></td>
+                            <td class="test" colspan="9">E A S T E R N</td>
+                         
+                            <tr id="row">
+                              <td class="odd">1</td>
+                              <td class="odd"  id="team-name" onclick="selectedTeam(2);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd" id="name">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">2</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(3);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">3</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(4);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            
+                            <tr>
+                              <td class="even">4</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(5);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">5</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(6);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">6</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(7);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">7</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(8);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">8</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(9);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">9</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(10);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                              
+                            </tr>
+                            <tr>
+                              <td class="even">10</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(11);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">11</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(12);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">12</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(13);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">13</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(14);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">14</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(15);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">15</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(16);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                                    <td class="test"></td>
+                                    <td class="test" colspan="9">W E S T E R N</td>
+    
+                    
+                            </tr>
+                    
+                            <tr>
+                              <td class="odd">1</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(18);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">2</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(19);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">3</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(20);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                    
+                            </tr>
+                            
+                            <tr>
+                              <td class="even">4</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(21);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">5</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(22);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">6</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(23);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">7</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(24);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">8</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(25);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">9</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(26);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">10</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(27);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">11</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(28);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">12</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(29);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">13</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(30);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="even">14</td>
+                              <td class="even" id="team-name" onclick="selectedTeam(31);">Team</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                              <td class="even">---</td>
+                            
+                            </tr>
+                            <tr>
+                              <td class="odd">15</td>
+                              <td class="odd" id="team-name" onclick="selectedTeam(32);">Team</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                              <td class="odd">---</td>
+                            
+                            </tr>
+                        </tbody>
+                            <tfoot>
+                              <td></td>
+                        
+                            </tfoot>
+                          </table>
+
+                          <table id="table-two"></table>
+                          
+            </div>
+            <div class="teaminfo">
+                    <h1 id="team-bio-name">LAVENDERS</h1>
+                    <p id="team-motto">"Roses are red. Violets are blue. We are Lavender."</p>
+                    <p id="team-content">
+                        <button onclick="matchHistory()" class="bio" id="bio-button">Match History</button>
+                        <button onclick="gainsLosses()" class="bio" id="bio-button-change">Gains/Losses</button>
+                        <button onclick="matchReport()" class="bio" id="baseball-button">Reports</button>
+                        <input type="number" id="specific-match" value="1" min="1" max="61">
+                        <button onclick="animateWindow()" class="bio" id="animate-button">Animate</button>
+                    </p>
+                    <p id="team-content-two">
+                      
+                    </p> 
+                    
+            </div>
+            <div id="playoff-button-div-two"><button onclick="playoffs()" id="playoff-button-two">Playoffs</button></div>
+            <div class="bracket" id="bracket-color">
+              <div id="playoff-button-div"><button onclick="playoffs()" id="playoff-button">Playoffs</button></div>
+              
+              <button id="winner-spot">Wow</button>
+              <div class="lefty-big">
+                <div class="lefty-one">
+                    <p class="left-bracket" id="left-one"></p>
+                    <p class="left-bracket" id="left-two"></p>
+                    <BR>
+                    <p class="left-bracket" id="left-three"></p>
+                    <p class="left-bracket" id="left-four"></p>
+                </div>
+                <div class="lefty-two">
+                    <p class="result-left" id="left-five"></p>
+                    <p class="result-left" id="left-six"></p>
+                </div>
+                <div class="lefty-three" id="lefty-end">
+                    <p class="result-left" id="left-seven"></p>
+                </div>
+                  
+              </div>
+              <div class="righty-big">
+                  <div class="righty-one">
+                      <p class="right-bracket" id="right-one"></p>
+                      <p class="right-bracket" id="right-two"></p>
+                      <BR>
+                      <p class="right-bracket" id="right-three"></p>
+                      <p class="right-bracket" id="right-four"></p>
+                  </div>
+                  <div class="righty-two">
+                      <p class="result-right" id="right-five"></p>
+                      <p class="result-right" id="right-six"></p>
+                  </div>
+                  <div class="righty-three" id="righty-end">
+                      <p class="result-left" id="right-seven"></p>
+                  </div>
+
+                     
+                  
+              </div>
+            
+
+            </div>
+            <div class="playoffs" id="playoffs-main">
+              <div class="matchup" id="first-playoff-row"></div>
+              <div class="matchup" id="second-playoff-row"></div>
+              <div class="matchup" id="third-playoff-row"></div>
+              <div class="matchup" id="fourth-playoff-row"></div>
+              <div class="matchup-box-container" id="matchup-left-container">
+                  <div class="matchup-box" id="first-playoff-box"></div>
+                  <div class="matchup-box" id="third-playoff-box"></div>
+                  <div class="matchup-box" id="cover-left"></div>
+              </div>
+              <div class="matchup-box-container" id="matchup-right-container">
+                  <div class="matchup-box" id="second-playoff-box"></div>
+                  <div class="matchup-box" id="fourth-playoff-box"></div>
+                  <div class="matchup-box" id="cover-right"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="test-space" id="test-space">
+          <div id="fixed">
+            <div id="outfield">
+                    <div class="field" id="field"></div>
+            </div>
+            <div class="fielder" id="catcher">C</div>
+            <div class="fielder" id="pitcher">P</div>
+            <div class="fielder" id="first-baseman">FB</div>
+            <div class="fielder" id="second-baseman">SB</div>
+            <div class="fielder" id="shortstop">SS</div>
+            <div class="fielder" id="third-baseman">TB</div>
+            <div class="fielder" id="left-field">LF</div>
+            <div class="fielder" id="center-field">CF</div>
+            <div class="fielder" id="right-field">RF</div>
+            <div class="runner" id="fb-runner">F</div>
+            <div class="runner" id="sb-runner">S</div>
+            <div class="runner" id="tb-runner">T</div>
+            <div class="runner" id="batter">H</div>
+            <div id="hit-type-one"></div>
+            <div id="hit-type-two"></div>
+            <div id="hit-type-three"></div>
+            <div id="hit-type-four"></div>
+            <div id="hit-type-five"></div>
+            <div id="hit-type-six"></div>
+            <div id="hit-type-seven"></div>
+            <div id="hit-type-eight"></div>
+            <div id="hit-type-nine"></div>
+    
+            <div id="inning"></div>
+            <div id="at-bat">ON DECK:</div>
+            <div id="outs">0 Out(s)</div>
+            <div id="team-batting"></div>
+            <div id="team-scores">Team - 10<br>Team - 5</div>
+            <button onclick="animateWindow()" class="bio" id="exit-animate">Exit</button>
+            <input type="textbox" id="set-interval" value="" min="1" max="5000" placeholder="Speed (1500 by default)">
+        </div>
+        </div>
+        <script src="app.js"></script>
+        <script src="teams.js"></script>
+    </body>
+</html>

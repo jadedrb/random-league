@@ -1,0 +1,4011 @@
+* {
+    background-color: rgb(59, 65, 63);
+    font-family: sans-serif;
+}
+
+@media screen and (min-width: 1071px) {  /* Desktop version */
+
+.main {
+    background-color: rgb(59, 65, 63);
+    display: grid;
+    grid-template-columns: 3% 1fr 1fr 40% 3%;
+    grid-template-rows: 1% 100px 100px 1fr 1px 100px 100px 100px;
+    grid-template-areas: 
+    ". . . . ."
+    ". title title title ."
+    ". standings standings sidebar ."
+    ". standings standings teaminfo ."
+    ". standings standings . ."
+    ". bracket bracket bracket ."
+    ". bracket bracket bracket ."
+    ". playoffs playoffs playoffs ."
+    ". . . . .";
+
+}
+
+#new-span {
+    display: inline-block;
+    position: absolute;
+    margin: 40px;
+}
+
+#player-line-break {
+    display: block;
+}
+
+#player-names {
+    display: inline-block;
+    margin-left: 180px;
+    background-color: transparent;
+    border-left: 1px solid black;
+    margin-top: 12px;
+    padding-left: 20px;
+
+}
+
+.sidebar font {
+    background-color: transparent;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: rgb(227, 231, 230);
+    padding: 20px;
+    z-index: 0;
+}
+
+.sidebar span {
+    display: inline-block;
+    background-color: transparent;
+}
+
+#start-sidebar {
+    display: none;
+}
+
+.sidebar button {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar input {
+    margin-right: 30px;
+}
+
+#playoff-button-div {
+    display: inline-block;
+    background-color: transparent;
+}
+
+#playoff-button-div-two {
+    display: none;
+}
+
+
+.title {
+    border-radius: 25px 25px 0px 0px; 
+    grid-area: title;
+    background-color: rgb(227, 231, 230);
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+h1 {
+    background-color: rgb(227, 231, 230);
+    border-bottom: 3px solid rgb(65, 64, 64);
+    width: 50%;
+    justify-content: right;
+}
+
+.standings {
+    background-color: rgb(227, 231, 230);
+    grid-area: standings;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+table, tr, th {
+    background-color: rgb(227, 231, 230);
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 6px;
+}
+
+th {
+    background-color: rgb(211, 212, 212);
+    text-align: left;
+}
+
+td {
+    background-color: rgb(227, 231, 230);
+    padding-right: 25px;
+}
+
+#team-name {
+    cursor: pointer;
+}
+
+
+#team-motto {
+    font-style: italic;
+    font-size: smaller;
+    color: darkolivegreen;
+} 
+#team-bio-name {
+    border-bottom: 3px solid rgb(224, 147, 147);
+} 
+
+.test {
+    background-color: rgb(247, 239, 239);
+    font-size: 20px
+}
+
+.teaminfo {
+    grid-area: teaminfo;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: rgb(227, 231, 230);
+    padding-left: 10px;
+    
+}
+
+.teaminfo h1 {
+    background-color: rgb(227, 231, 230);
+}
+
+#team-content-two font {
+    background-color: rgb(227, 231, 230);
+}
+
+#team-content-two p {
+    background-color: transparent;
+    color: rgb(155, 153, 27);
+    font-size: 13px;
+    padding-right: 50px;
+    margin: 0;
+    text-align: right;
+}
+
+p {
+    background-color: rgb(227, 231, 230);
+}
+
+input {
+    background-color: rgb(227, 231, 230);
+}
+
+.bracket {
+    grid-area: bracket;
+    text-align: center;
+    border: 1px solid black;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-right: 30px;
+    background-color: rgb(227, 231, 230);
+    
+}
+
+
+.righty-big {
+    background-color: transparent;
+    float: right;
+}
+
+.lefty-big {
+    background-color: transparent;
+    float: left;
+}
+
+.righty-one {
+    background-color: transparent;
+    float: right;
+}
+.righty-two {
+    background-color: transparent;
+    float: right;
+    padding-top: 50px;
+    padding-right: 35px;
+    padding-bottom: 50px;
+}
+.righty-three {
+    background-color: transparent;
+    float: left;
+    height: 110px;
+    padding-top: 70px;
+    padding-right: 35px;
+}
+
+.lefty-one {
+    background-color: transparent;
+    float: left;
+}
+.lefty-two {
+    background-color: transparent;
+    padding-top: 50px;
+    padding-left: 35px;
+    padding-bottom: 50px;
+    float: left;
+    
+}
+.lefty-three {
+    background-color: transparent;
+    padding-top: 70px;
+    float: right;
+    height: 110px;
+    padding-left: 35px;
+}
+
+
+#left-one font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-two font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-three font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-four font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-five font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-six font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-seven font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-one font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-two font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-three font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-four font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-five font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-six font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-seven font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+.playoffs {
+    grid-area: playoffs;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 0px 0px 25px 25px; 
+    height: 500px;
+}
+
+#left-one {
+    background-color: transparent;
+}
+
+#left-two {
+    background-color: transparent;
+}
+
+#left-three {
+    background-color: transparent;
+}
+
+#left-four {
+    background-color: transparent;
+}
+
+#left-five {
+    background-color: transparent;
+}
+
+#left-six {
+    background-color: transparent;
+}
+
+#left-seven {
+    background-color: transparent;
+}
+
+#right-one {
+    background-color: transparent;
+}
+
+#right-two {
+    background-color: transparent;
+}
+
+#right-three {
+    background-color: transparent;
+}
+
+#right-four {
+    background-color: transparent;
+}
+
+#right-five {
+    background-color: transparent;
+}
+
+#right-six {
+    background-color: transparent;
+}
+
+#right-seven {
+    background-color: transparent;
+}
+
+
+
+.even { 
+    background-color: #efeff1 ;
+}
+
+.odd {
+    background-color: #faf5f5 ;
+}
+
+button {
+    height: 25px;
+    width: 100px;
+    background-color: rgb(255, 255, 255);
+    font-weight: 800;
+    border: 1px solid black;
+    border-radius: 4px;
+    opacity: .5s;
+    margin: 25px;
+}
+
+.bio {
+    height: 20px;
+    width: 90px;
+    background-color: rgb(224, 147, 147);
+    font-weight: 800;
+    border: 1px solid black;
+    border-radius: 4px;
+    opacity: .5s;
+    margin: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#baseball-button {
+    display: none;
+}
+
+#animate-button {
+    display: none;
+    opacity: .3;
+    background-color: transparent;
+}
+
+#specific-match {
+    display: none;
+}
+
+
+.matchup {
+    display: block;
+    height: 25%;
+    background-color: rgb(227, 231, 230);
+}
+
+button:hover {
+    background-color: rgb(59, 65, 63);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:active {
+    background-color: rgb(0, 255, 42);
+    color: black;
+}
+
+.teams {
+    padding-right: 180px;
+}
+
+
+
+#end-one {
+    border-right: 2px solid black;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+#end-one th {
+    background-color: rgb(156, 115, 168);
+    padding-left: 10px;
+}
+
+#end-one td {
+    background-color: #be9abb;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
+#first-playoff-row {
+    background-color: transparent;
+}
+
+#first-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#first-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#first-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#second-playoff-row {
+    background-color: transparent;
+}
+
+#second-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#second-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#second-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#third-playoff-row {
+    background-color: transparent;
+}
+
+#third-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#third-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#third-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#fourth-playoff-row {
+    background-color: transparent;
+}
+
+#fourth-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#fourth-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#fourth-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
+#playoff-button {
+    margin-top: 80px;
+    border: 2px solid black;
+    display: none;
+}
+
+
+
+#winner-spot {
+    margin-top: 65px;
+    margin-left: 0;
+    margin-right: 0;
+    border: 0;
+    background-color: transparent;
+    display: none;
+    color: rgb(159, 112, 163)
+}
+
+#winner-spot font {
+    background-color: transparent;
+    font-size: 70%; 
+    color: rgb(198, 156, 211);
+}
+
+.matchup-box-container {
+    
+    position: relative;
+
+}
+
+#matchup-left-container {
+    float: left;
+}
+
+#matchup-right-container {
+    float: right;
+}
+
+
+.matchup-box {
+    background-color: #D9FDFF;
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: x-large;
+    position: relative;
+
+}
+
+
+
+.box-button {
+    height: 20px;
+    width: 100px;
+    background-color: rgb(116, 126, 143);
+    color: white;
+    font-weight: 800;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 25px;
+}
+
+#score-one {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: inline-block;
+    margin-right: 275px;
+    margin-top: 80px;
+}
+
+#score-one-side font {
+    background-color: transparent;
+    width: 50px;
+}
+
+#score-two-side font {
+    background-color: transparent;
+    width: 50px;
+}
+
+#score-three-side font {
+    background-color: transparent;
+    width: 50px;
+}
+
+#score-four-side font {
+    background-color: transparent;
+    width: 50px;
+}
+
+#games-one {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#games-two {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#games-three {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#games-four {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#score-one-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#score-two-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#score-three-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#score-four-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#best-one {
+    background-color: transparent;
+    font-size: large;
+    color: gray;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+#best-two {
+    background-color: transparent;
+    font-size: large;
+    color: gray;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+#best-three {
+    background-color: transparent;
+    font-size: large;
+    color: gray;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+#best-four {
+    background-color: transparent;
+    font-size: large;
+    position: absolute;
+    color: gray;
+    top: 25px;
+    left: 25px;
+}
+
+.boxscore-p {
+    background-color: transparent;
+    color: grey;
+    border: none;
+    cursor: pointer;
+}
+
+
+#cover-left {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(233, 254, 255);
+    font-size: 68%;
+    z-index: -1;
+
+}
+
+#cover-right {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgb(233, 254, 255);
+    font-size: 68%;
+    z-index: -1;
+
+}
+
+
+#cover-right font {
+    margin-right: 50px;
+    background-color: transparent;
+    position: absolute;
+    font-size: x-large;
+    top: 125px;
+    right: 30px;
+}
+
+
+#cover-right button {
+    background-color: transparent;
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+}
+
+#cover-right th {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-right td {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-right table {
+    background-color: rgb(233, 254, 255);
+    margin-left: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+#cover-left font {
+    margin-right: 50px;
+    background-color: transparent;
+    position: absolute;
+    font-size: x-large;
+    top: 125px;
+    right: 30px;
+}
+
+#cover-left button {
+    background-color: transparent;
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+}
+
+#cover-left th {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-left td {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-left table {
+    background-color: rgb(233, 254, 255);
+    margin-left: 15px;
+}
+
+
+
+#match-repo-game {
+    background-color: transparent;
+    position: absolute;
+    font-size: medium;
+    top: 15px;
+    left: 15px;
+    color: rgb(90, 90, 90);
+}
+
+#match-repo-boxscore {
+    background-color: transparent;
+    position: absolute;
+    margin-top: 15px;
+    margin-right: -30px;
+    top: 0px;
+}
+
+
+#clean {
+    background-color: rgb(233, 254, 255);
+    text-align: left;
+    position: relative;
+    font-size: x-small;
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#clean font {
+    font-size: small;
+    margin: 0;
+    position: relative;
+    background-color: transparent;
+    text-align: left;
+    top: 0px;
+    right: 0px;
+    height: 0px;
+}
+
+
+#baseball-table {
+    cursor: pointer;
+}
+
+.header-sort {
+    cursor: pointer;
+}
+
+#table-two {
+    display: none;   
+    border-collapse: collapse; 
+    height: 950px;
+}
+
+#table-two td {
+    font-size: small;
+    background-color: antiquewhite;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    margin: 1px;
+    padding: 1px;
+}
+
+#table-two font {
+    background-color: transparent;
+}
+
+#table-two b {
+    background-color: transparent;
+}
+
+
+
+
+
+.test-space {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: brown;
+    width: 100%;
+    height: 2000px;
+}
+
+
+
+
+
+.field {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: bisque;
+    height: 150px;
+    width: 150px;
+    border-right: 5px solid black;
+}
+
+#outfield {
+    position: absolute;
+    background-color: rgb(110, 194, 110);
+    border: 1px solid whitesmoke;
+    height: 500px;
+    width: 500px;
+    transform: rotate(45deg);
+    margin: 300px;
+    border-radius: 100% 0px 0px 0px;
+
+}
+
+#fixed {
+    position: relative;
+    width: 1088px;
+}
+
+#batter {
+    position: absolute;
+    top: 900px;
+    right: 550px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#fb-runner {
+    position: absolute;
+    top: 800px;
+    right: 350px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#sb-runner {
+    position: absolute;
+    top: 670px;
+    right: 520px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#tb-runner {
+    position: absolute;
+    top: 800px;
+    right: 670px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#catcher {
+    position: absolute;
+    top: 930px;
+    right: 520px;
+    color: grey;
+    background-color: transparent;
+}
+
+#pitcher {
+    position: absolute;
+    top: 790px;
+    right: 520px;
+    color: grey;
+    background-color: transparent;
+}
+
+#first-baseman {
+    position: absolute;
+    top: 760px;
+    right: 450px;
+    color: grey;
+    background-color: transparent;
+}
+
+#second-baseman {
+    position: absolute;
+    top: 700px;
+    right: 480px;
+    color: grey;
+    background-color: transparent;
+}
+
+#third-baseman {
+    position: absolute;
+    top: 760px;
+    right: 580px;
+    color: grey;
+    background-color: transparent;
+}
+
+#shortstop {
+    position: absolute;
+    top: 700px;
+    right: 590px;
+    color: grey;
+    background-color: transparent;
+}
+
+#left-field {
+    position: absolute;
+    top: 600px;
+    right: 710px;
+    color: grey;
+    background-color: transparent;
+}
+
+#right-field {
+    position: absolute;
+    top: 600px;
+    right: 350px;
+    color: grey;
+    background-color: transparent;
+}
+
+#center-field {
+    position: absolute;
+    top: 500px;
+    right: 530px;
+    color: grey;
+    background-color: transparent;
+}
+
+#hit-type-one {
+    position: absolute;
+    top: 700px;
+    right: 507px;
+    height: 205px;
+    border-left: 5px solid salmon;
+    transform: rotate(15deg);
+}
+
+#hit-type-two {
+    position: absolute;
+    top: 660px;
+    right: 535px;
+    height: 240px;
+    border-left: 5px solid rgb(114, 250, 239);
+}
+
+#hit-type-three {
+    position: absolute;
+    top: 675px;
+    right: 595px;
+    height: 240px;
+    transform: rotate(-30deg);
+    border-left: 5px solid rgb(237, 247, 101);
+}
+
+
+
+
+
+
+
+
+
+
+
+#hit-type-four {
+    position: absolute;
+    top: 505px;
+    right: 482px;
+    height: 400px;
+    border-left: 5px solid rgb(209, 17, 97);
+    transform: rotate(15deg);
+}
+
+#hit-type-five {
+    position: absolute;
+    top: 502px;
+    right: 535px;
+    height: 400px;
+    border-left: 5px solid rgb(150, 114, 250);
+}
+
+#hit-type-six {
+    position: absolute;
+    top: 527px;
+    right: 635px;
+    height: 400px;
+    transform: rotate(-30deg);
+    border-left: 5px solid rgb(40, 194, 26);
+}
+
+#hit-type-seven {
+    position: absolute;
+    top: 305px;
+    right: 480px;
+    height: 600px;
+    transform: rotate(10deg);
+    border-left: 5px solid rgb(254, 255, 178);
+}
+
+#hit-type-eight {
+    position: absolute;
+    top: 370px;
+    right: 345px;
+    height: 600px;
+    transform: rotate(40deg);
+    border-left: 5px solid rgb(254, 255, 178);
+}
+
+#hit-type-nine {
+    position: absolute;
+    top: 310px;
+    right: 610px;
+    height: 600px;
+    transform: rotate(-14deg);
+    border-left: 5px solid rgb(254, 255, 178);
+}
+
+
+
+#inning {
+    position: absolute;
+    background-color: transparent;
+    color: wheat;
+    top: 400px;
+    right: -350px;
+    font-size: large;
+    width: 500px;
+}
+
+#at-bat {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(202, 137, 148);
+    top: 800px;
+    right: 650px;
+    width: 200px;
+}
+
+#outs {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(202, 137, 148);
+    font-size: x-large;
+    top: 800px;
+    right: 250px;
+}
+
+#team-scores {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(230, 182, 182);
+    font-size: xx-large;
+    top: 300px;
+    left: 100px;
+}
+
+#team-batting {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(202, 137, 148);
+    font-size: large;
+    top: 820px;
+    left: 60px;
+}
+
+#set-interval {
+    position: absolute;
+    background-color: transparent;
+    font-size: small;
+    top: 274px;
+    right: 150px;
+}
+
+#exit-animate {
+    position: absolute;
+    background-color: transparent;
+    font-size: small;
+    top: 270px;
+    right:10px;
+}
+
+#show-att {
+    cursor: pointer;
+}
+
+#show-att:hover {
+    color: grey;
+}
+
+#baseball-table:hover {
+    color: rgb(173, 173, 173);
+}
+
+#header-hover:hover {
+    color: slateblue;
+}
+
+#team-name:hover {
+    background-color: rgb(223, 223, 223);
+}
+
+#highlight-top {
+    background-color: brown;
+}
+
+#highlight-bottom {
+    background-color: transparent;
+}
+
+
+} /* End of desktop version. Start of mobile. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1070px) and (min-width: 651px) {
+
+
+
+.main {
+    display: block;
+    width: 100%;
+    background-color: rgb(59, 65, 63);
+}
+
+#sidebar-actually-remove {
+    display: none;
+}
+
+#player-line-break {
+    background-color: transparent;
+}
+
+#player-names {
+    display: inline-block;
+    background-color: transparent;
+    border-left: 1px solid black;
+    padding-left: 25px;
+}
+
+#player-names font {
+    background-color: transparent;
+}
+
+.sidebar {
+    display: block;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: rgb(227, 231, 230);
+    padding: 50px;
+    width: auto;
+}
+
+.span-class {
+    display: block;
+    margin-bottom: 50px;
+    background-color: transparent;
+}
+
+.sidebar button {
+    padding: 0;
+    margin: 10px;
+    margin-right: 30px;
+}
+
+.sidebar input {
+    margin-right: 50px;
+}
+
+#new-span {
+    background-color: transparent;
+}
+
+#playoff-button-div {
+    display: none;
+    background-color: transparent;
+}
+
+#playoff-button-div-two {
+    display: block;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: rgb(227, 231, 230);
+}
+
+#playoff-button-two {
+    display: none;
+}
+
+.title {
+    border-radius: 25px 25px 0px 0px; 
+    background-color: rgb(227, 231, 230);
+    height: 100px;
+    padding-top: 10px;
+    padding-left: 30px;
+    width: auto;
+}
+
+h1 {
+    background-color: rgb(227, 231, 230);
+    border-bottom: 3px solid rgb(65, 64, 64);
+    width: 50%;
+    justify-content: right;
+}
+
+.standings {
+    background-color: rgb(227, 231, 230);
+    grid-area: standings;
+    padding-left: 40px;
+    padding-top: 20px;
+    width: auto;
+}
+
+table, tr, th {
+    background-color: rgb(227, 231, 230);
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 6px;
+}
+
+th {
+    background-color: rgb(211, 212, 212);
+    text-align: left;
+}
+
+td {
+    background-color: rgb(227, 231, 230);
+    padding-right: 25px;
+}
+
+#team-name {
+    cursor: pointer;
+}
+
+
+#team-motto {
+    font-style: italic;
+    font-size: smaller;
+    color: darkolivegreen;
+} 
+#team-bio-name {
+    border-bottom: 3px solid rgb(224, 147, 147);
+} 
+
+.test {
+    background-color: rgb(247, 239, 239);
+    font-size: 20px
+}
+
+.teaminfo {
+    grid-area: teaminfo;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: rgb(227, 231, 230);
+    padding-left: 10px;
+    
+}
+
+.teaminfo h1 {
+    background-color: rgb(227, 231, 230);
+}
+
+#team-content-two font {
+    background-color: rgb(227, 231, 230);
+}
+
+#team-content-two p {
+    background-color: transparent;
+    color: rgb(155, 153, 27);
+    font-size: 13px;
+    padding-right: 50px;
+    margin: 0;
+    text-align: right;
+}
+
+p {
+    background-color: rgb(227, 231, 230);
+}
+
+input {
+    background-color: rgb(227, 231, 230);
+}
+
+.bracket {
+    position: relative;
+    text-align: center;
+    border: 1px solid black;
+    height: 200px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-right: 30px;
+    background-color: rgb(227, 231, 230);
+    
+}
+
+
+.righty-big {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    float: right;
+}
+
+.lefty-big {
+    background-color: transparent;
+    float: left;
+}
+
+.righty-one {
+    background-color: transparent;
+    float: right;
+}
+.righty-two {
+    background-color: transparent;
+    float: right;
+    padding-top: 50px;
+    padding-right: 35px;
+    padding-bottom: 50px;
+}
+.righty-three {
+    background-color: transparent;
+    float: left;
+    height: 110px;
+    padding-top: 60px;
+    padding-right: 35px;
+}
+
+.lefty-one {
+    background-color: transparent;
+    float: left;
+}
+.lefty-two {
+    background-color: transparent;
+    padding-top: 50px;
+    padding-left: 35px;
+    padding-bottom: 50px;
+    float: left;
+    
+}
+.lefty-three {
+    background-color: transparent;
+    padding-top: 80px;
+    float: right;
+    height: 110px;
+    padding-left: 35px;
+}
+
+
+#left-one font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-two font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-three font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-four font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-five font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-six font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#left-seven font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-one font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-two font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-three font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-four font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-five font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-six font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+#right-seven font {
+    background-color: transparent;
+    color: #AFABAB;
+    font-size: 70%;
+}
+
+.playoffs {
+    grid-area: playoffs;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 0px 0px 25px 25px; 
+    height: 500px;
+}
+
+#left-one {
+    background-color: transparent;
+}
+
+#left-two {
+    background-color: transparent;
+}
+
+#left-three {
+    background-color: transparent;
+}
+
+#left-four {
+    background-color: transparent;
+}
+
+#left-five {
+    background-color: transparent;
+}
+
+#left-six {
+    background-color: transparent;
+}
+
+#left-seven {
+    background-color: transparent;
+}
+
+#right-one {
+    background-color: transparent;
+}
+
+#right-two {
+    background-color: transparent;
+}
+
+#right-three {
+    background-color: transparent;
+}
+
+#right-four {
+    background-color: transparent;
+}
+
+#right-five {
+    background-color: transparent;
+}
+
+#right-six {
+    background-color: transparent;
+}
+
+#right-seven {
+    background-color: transparent;
+}
+
+
+
+.even { 
+    background-color: #efeff1 ;
+}
+
+.odd {
+    background-color: #faf5f5 ;
+}
+
+button {
+    height: 25px;
+    width: 100px;
+    background-color: rgb(255, 255, 255);
+    font-weight: 800;
+    border: 1px solid black;
+    border-radius: 4px;
+    opacity: .5s;
+    margin: 25px;
+}
+
+.bio {
+    height: 20px;
+    width: 90px;
+    background-color: rgb(224, 147, 147);
+    font-weight: 800;
+    border: 1px solid black;
+    border-radius: 4px;
+    opacity: .5s;
+    margin: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#baseball-button {
+    display: none;
+}
+
+#animate-button {
+    display: none;
+    opacity: .3;
+    background-color: transparent;
+}
+
+#specific-match {
+    display: none;
+}
+
+
+.matchup {
+    display: block;
+    height: 25%;
+    background-color: rgb(227, 231, 230);
+}
+
+button:hover {
+    background-color: rgb(59, 65, 63);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:active {
+    background-color: rgb(0, 255, 42);
+    color: black;
+}
+
+.teams {
+    padding-right: 180px;
+}
+
+
+
+#end-one {
+    border-right: 2px solid black;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+#end-one th {
+    background-color: rgb(156, 115, 168);
+    padding-left: 10px;
+}
+
+#end-one td {
+    background-color: #be9abb;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
+#first-playoff-row {
+    background-color: transparent;
+}
+
+#first-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#first-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#first-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#second-playoff-row {
+    background-color: transparent;
+}
+
+#second-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#second-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#second-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#third-playoff-row {
+    background-color: transparent;
+}
+
+#third-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#third-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#third-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+#fourth-playoff-row {
+    background-color: transparent;
+}
+
+#fourth-playoff-row table {
+
+    border-right: 2px solid black;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    height: 100%;
+    display: inline-block;
+    font-size: larger;
+    white-space: nowrap;
+}
+
+
+#fourth-playoff-row th {
+    background-color: rgb(247, 239, 239);
+    padding-left: 10px;
+}
+
+#fourth-playoff-row td {
+    background-color: #efeff1;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
+#playoff-button {
+    margin-top: 80px;
+    border: 2px solid black;
+    display: none;
+}
+
+#winner-spot {
+    position: absolute;
+    right: 450px;
+    margin-top: 65px;
+    border: 0;
+    background-color: transparent;
+    display: none;
+    color: rgb(159, 112, 163)
+}
+
+#winner-spot font {
+    background-color: transparent;
+    font-size: 70%; 
+    color: rgb(198, 156, 211);
+}
+
+.matchup-box-container {
+    
+    position: relative;
+
+}
+
+#matchup-left-container {
+    float: left;
+}
+
+#matchup-right-container {
+    float: right;
+}
+
+
+.matchup-box {
+    background-color: #D9FDFF;
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: x-large;
+    position: relative;
+
+}
+
+
+
+.box-button {
+    height: 20px;
+    width: 100px;
+    background-color: rgb(116, 126, 143);
+    color: white;
+    font-weight: 800;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 25px;
+}
+
+#score-one {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: inline-block;
+    margin-right: 50%;
+    margin-top: 80px;
+}
+
+#score-one-side font {
+    position: absolute;
+    background-color: transparent;
+    margin-left: 40px;
+    width: 50px;
+}
+
+#score-two-side font {
+    position: absolute;
+    background-color: transparent;
+    margin-left: 40px;
+    width: 50px;
+}
+
+#score-three-side font {
+    position: absolute;
+    background-color: transparent;
+    margin-left: 40px;
+    width: 50px;
+}
+
+#score-four-side font {
+    position: absolute;
+    background-color: transparent;
+    margin-left: 40px;
+    width: 50px;
+}
+
+#games-one {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#games-two {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#games-three {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#games-four {
+    background-color: transparent;
+    text-align: right;
+    color: grey;
+    position: absolute;
+    font-size: x-small;
+    top: 15px;
+    right: 15px;
+
+}
+
+#score-one-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#score-two-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#score-three-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#score-four-side {
+    background-color: transparent;
+    text-align: right;
+    font-size: x-large;
+    position: absolute;
+    top: 80px;
+    right: 225px;
+}
+
+#best-one {
+    background-color: transparent;
+    font-size: large;
+    color: gray;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+#best-two {
+    background-color: transparent;
+    font-size: large;
+    color: gray;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+#best-three {
+    background-color: transparent;
+    font-size: large;
+    color: gray;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+#best-four {
+    background-color: transparent;
+    font-size: large;
+    position: absolute;
+    color: gray;
+    top: 25px;
+    left: 25px;
+}
+
+.boxscore-p {
+    background-color: transparent;
+    color: grey;
+    border: none;
+    cursor: pointer;
+}
+
+
+#cover-left {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(233, 254, 255);
+    font-size: 68%;
+    z-index: -1;
+
+}
+
+#cover-right {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgb(233, 254, 255);
+    font-size: 68%;
+    z-index: -1;
+
+}
+
+
+#cover-right font {
+    margin-right: 50px;
+    background-color: transparent;
+    position: absolute;
+    font-size: x-large;
+    top: 125px;
+    right: 30px;
+}
+
+
+#cover-right button {
+    background-color: transparent;
+    border-color: rgb(204, 204, 204);
+    color: rgb(143, 143, 143);
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+}
+
+#cover-right th {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-right td {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-right table {
+    background-color: rgb(233, 254, 255);
+    margin-left: 15px;
+}
+
+
+#cover-left font {
+    margin-right: 50px;
+    background-color: transparent;
+    position: absolute;
+    font-size: x-large;
+    top: 125px;
+    right: 30px;
+}
+
+#cover-left button {
+    background-color: transparent;
+    border-color: rgb(204, 204, 204);
+    color: rgb(143, 143, 143);
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+}
+
+#cover-left th {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-left td {
+    background-color: rgb(233, 254, 255);
+}
+
+#cover-left table {
+    background-color: rgb(233, 254, 255);
+    margin-left: 15px;
+}
+
+
+
+#match-repo-game {
+    background-color: transparent;
+    position: absolute;
+    font-size: medium;
+    top: 15px;
+    left: 15px;
+    color: rgb(90, 90, 90);
+}
+
+#match-repo-boxscore {
+    background-color: transparent;
+    position: absolute;
+    margin-top: 15px;
+    margin-right: -30px;
+    top: 0px;
+}
+
+
+#clean {
+    background-color: rgb(233, 254, 255);
+    text-align: left;
+    position: relative;
+    font-size: x-small;
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#clean font {
+    font-size: small;
+    margin: 0;
+    position: relative;
+    background-color: transparent;
+    text-align: left;
+    top: 0px;
+    right: 0px;
+    height: 0px;
+}
+
+
+#baseball-table {
+    cursor: pointer;
+}
+
+.header-sort {
+    cursor: pointer;
+}
+
+#table-two {
+    display: none;   
+    border-collapse: collapse; 
+    height: 950px;
+}
+
+#table-two td {
+    font-size: small;
+    background-color: antiquewhite;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    margin: 1px;
+    padding: 1px;
+}
+
+#table-two font {
+    background-color: transparent;
+}
+
+#table-two b {
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+.test-space {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: brown;
+    width: 1200px;
+    height: 2000px;
+}
+
+
+
+
+
+.field {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: bisque;
+    height: 150px;
+    width: 150px;
+    border-right: 5px solid black;
+}
+
+#outfield {
+    position: absolute;
+    background-color: rgb(110, 194, 110);
+    border: 1px solid whitesmoke;
+    height: 500px;
+    width: 500px;
+    transform: rotate(45deg);
+    margin: 300px;
+    border-radius: 100% 0px 0px 0px;
+
+}
+
+#fixed {
+    position: relative;
+    width: 1088px;
+}
+
+#batter {
+    position: absolute;
+    top: 900px;
+    right: 550px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#fb-runner {
+    position: absolute;
+    top: 800px;
+    right: 350px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#sb-runner {
+    position: absolute;
+    top: 670px;
+    right: 520px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#tb-runner {
+    position: absolute;
+    top: 800px;
+    right: 670px;
+    color: rgb(224, 215, 93);
+    background-color: transparent;
+}
+
+#catcher {
+    position: absolute;
+    top: 930px;
+    right: 520px;
+    color: grey;
+    background-color: transparent;
+}
+
+#pitcher {
+    position: absolute;
+    top: 790px;
+    right: 520px;
+    color: grey;
+    background-color: transparent;
+}
+
+#first-baseman {
+    position: absolute;
+    top: 760px;
+    right: 450px;
+    color: grey;
+    background-color: transparent;
+}
+
+#second-baseman {
+    position: absolute;
+    top: 700px;
+    right: 480px;
+    color: grey;
+    background-color: transparent;
+}
+
+#third-baseman {
+    position: absolute;
+    top: 760px;
+    right: 580px;
+    color: grey;
+    background-color: transparent;
+}
+
+#shortstop {
+    position: absolute;
+    top: 700px;
+    right: 590px;
+    color: grey;
+    background-color: transparent;
+}
+
+#left-field {
+    position: absolute;
+    top: 600px;
+    right: 710px;
+    color: grey;
+    background-color: transparent;
+}
+
+#right-field {
+    position: absolute;
+    top: 600px;
+    right: 350px;
+    color: grey;
+    background-color: transparent;
+}
+
+#center-field {
+    position: absolute;
+    top: 500px;
+    right: 530px;
+    color: grey;
+    background-color: transparent;
+}
+
+#hit-type-one {
+    position: absolute;
+    top: 700px;
+    right: 507px;
+    height: 205px;
+    border-left: 5px solid salmon;
+    transform: rotate(15deg);
+}
+
+#hit-type-two {
+    position: absolute;
+    top: 660px;
+    right: 535px;
+    height: 240px;
+    border-left: 5px solid rgb(114, 250, 239);
+}
+
+#hit-type-three {
+    position: absolute;
+    top: 675px;
+    right: 595px;
+    height: 240px;
+    transform: rotate(-30deg);
+    border-left: 5px solid rgb(237, 247, 101);
+}
+
+
+
+
+
+
+
+
+
+
+
+#hit-type-four {
+    position: absolute;
+    top: 505px;
+    right: 482px;
+    height: 400px;
+    border-left: 5px solid rgb(209, 17, 97);
+    transform: rotate(15deg);
+}
+
+#hit-type-five {
+    position: absolute;
+    top: 502px;
+    right: 535px;
+    height: 400px;
+    border-left: 5px solid rgb(150, 114, 250);
+}
+
+#hit-type-six {
+    position: absolute;
+    top: 527px;
+    right: 635px;
+    height: 400px;
+    transform: rotate(-30deg);
+    border-left: 5px solid rgb(40, 194, 26);
+}
+
+#hit-type-seven {
+    position: absolute;
+    top: 305px;
+    right: 480px;
+    height: 600px;
+    transform: rotate(10deg);
+    border-left: 5px solid rgb(254, 255, 178);
+}
+
+#hit-type-eight {
+    position: absolute;
+    top: 370px;
+    right: 345px;
+    height: 600px;
+    transform: rotate(40deg);
+    border-left: 5px solid rgb(254, 255, 178);
+}
+
+#hit-type-nine {
+    position: absolute;
+    top: 310px;
+    right: 610px;
+    height: 600px;
+    transform: rotate(-14deg);
+    border-left: 5px solid rgb(254, 255, 178);
+}
+
+
+
+#inning {
+    position: absolute;
+    background-color: transparent;
+    color: wheat;
+    top: 400px;
+    right: -350px;
+    font-size: large;
+    width: 500px;
+}
+
+#at-bat {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(202, 137, 148);
+    top: 800px;
+    right: 650px;
+    width: 200px;
+}
+
+#outs {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(202, 137, 148);
+    font-size: x-large;
+    top: 800px;
+    right: 250px;
+}
+
+#team-scores {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(230, 182, 182);
+    font-size: xx-large;
+    top: 300px;
+    left: 100px;
+}
+
+#team-batting {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(202, 137, 148);
+    font-size: large;
+    top: 820px;
+    left: 60px;
+}
+
+#set-interval {
+    position: absolute;
+    background-color: transparent;
+    font-size: small;
+    top: 274px;
+    right: 150px;
+}
+
+#exit-animate {
+    position: absolute;
+    background-color: transparent;
+    font-size: small;
+    top: 270px;
+    right:10px;
+}
+
+#show-att {
+    cursor: pointer;
+}
+
+#show-att:hover {
+    color: grey;
+}
+
+#baseball-table:hover {
+    color: rgb(173, 173, 173);
+}
+
+#header-hover:hover {
+    color: slateblue;
+}
+
+#team-name:hover {
+    background-color: rgb(223, 223, 223);
+}
+
+#highlight-top {
+    background-color: brown;
+}
+
+#highlight-bottom {
+    background-color: transparent;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 650px) {
+
+
+
+    .main {
+        display: block;
+        width: 130%;
+    }
+    
+    #sidebar-actually-remove {
+        display: none;
+    }
+    
+    #player-line-break {
+        background-color: transparent;
+    }
+    
+    #player-names {
+        display: inline-block;
+        background-color: transparent;
+        border-left: 1px solid black;
+        padding-left: 25px;
+    }
+    
+    #player-names font {
+        background-color: transparent;
+    }
+    
+    .sidebar {
+        display: block;
+        border: 1px solid rgb(201, 201, 201);
+        background-color: rgb(227, 231, 230);
+        padding: 50px;
+        width: auto;
+    }
+    
+    .span-class {
+        display: block;
+        margin-bottom: 50px;
+        background-color: transparent;
+    }
+    
+    .sidebar button {
+        padding: 0;
+        margin: 10px;
+        margin-right: 30px;
+    }
+    
+    .sidebar input {
+        margin-right: 50px;
+    }
+    
+    #new-span {
+        background-color: transparent;
+    }
+    
+    #playoff-button-div {
+        display: none;
+        background-color: transparent;
+    }
+    
+    #playoff-button-div-two {
+        display: block;
+        border: 1px solid rgb(201, 201, 201);
+        background-color: rgb(227, 231, 230);
+    }
+    
+    #playoff-button-two {
+        display: none;
+    }
+    
+    .title {
+        border-radius: 25px 25px 0px 0px; 
+        background-color: rgb(227, 231, 230);
+        height: 100px;
+        padding-top: 10px;
+        padding-left: 30px;
+        width: auto;
+    }
+    
+    h1 {
+        background-color: rgb(227, 231, 230);
+        border-bottom: 3px solid rgb(65, 64, 64);
+        width: 50%;
+        justify-content: right;
+    }
+    
+    .standings {
+        background-color: rgb(227, 231, 230);
+        grid-area: standings;
+        padding-top: 20px;
+        width: auto;
+    }
+    
+    table, tr, th {
+        background-color: rgb(227, 231, 230);
+        border-collapse: collapse;
+    }
+    
+    th, td {
+        padding: 6px;
+    }
+    
+    th {
+        background-color: rgb(211, 212, 212);
+        text-align: left;
+    }
+    
+    td {
+        background-color: rgb(227, 231, 230);
+        padding-right: 25px;
+    }
+    
+    #team-name {
+        cursor: pointer;
+    }
+    
+    
+    #team-motto {
+        font-style: italic;
+        font-size: smaller;
+        color: darkolivegreen;
+    } 
+    #team-bio-name {
+        border-bottom: 3px solid rgb(224, 147, 147);
+    } 
+    
+    .test {
+        background-color: rgb(247, 239, 239);
+        font-size: 20px
+    }
+    
+    .teaminfo {
+        grid-area: teaminfo;
+        border: 1px solid rgb(201, 201, 201);
+        background-color: rgb(227, 231, 230);
+        padding-left: 10px;
+        
+    }
+    
+    .teaminfo h1 {
+        background-color: rgb(227, 231, 230);
+    }
+    
+    #team-content-two font {
+        background-color: rgb(227, 231, 230);
+    }
+    
+    #team-content-two p {
+        background-color: transparent;
+        color: rgb(155, 153, 27);
+        font-size: 13px;
+        padding-right: 50px;
+        margin: 0;
+        text-align: right;
+    }
+    
+    p {
+        background-color: rgb(227, 231, 230);
+    }
+    
+    input {
+        background-color: rgb(227, 231, 230);
+    }
+    
+    .bracket {
+        text-align: center;
+        border: 1px solid black;
+        height: 200px;
+        padding-left: 30px;
+        padding-top: 5px;
+        padding-right: 30px;
+        background-color: rgb(227, 231, 230);
+        
+    }
+    
+    
+    .righty-big {
+        background-color: transparent;
+        float: right;
+    }
+    
+    .lefty-big {
+        position: absolute;
+        background-color: transparent;
+        float: left;
+    }
+    
+    .righty-one {
+        background-color: transparent;
+        float: right;
+    }
+    .righty-two {
+        background-color: transparent;
+        float: right;
+        padding-top: 50px;
+        padding-right: 35px;
+        padding-bottom: 50px;
+    }
+    .righty-three {
+        position: absolute;
+        background-color: transparent;
+        padding-top: 1px;
+        right: 150px;
+    }
+    
+    .lefty-one {
+        background-color: transparent;
+        float: left;
+    }
+    .lefty-two {
+        background-color: transparent;
+        padding-top: 50px;
+        padding-left: 35px;
+        padding-bottom: 50px;
+        float: left;
+        
+    }
+    .lefty-three {
+        background-color: transparent;
+        padding-top: 70px;
+        float: right;
+        height: 110px;
+        padding-top: 120px;
+    }
+    
+    
+    #left-one font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #left-two font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #left-three font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #left-four font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #left-five font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #left-six font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #left-seven font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #right-one font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #right-two font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #right-three font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #right-four font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #right-five font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #right-six font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    #right-seven font {
+        background-color: transparent;
+        color: #AFABAB;
+        font-size: 70%;
+    }
+    
+    .playoffs {
+        border: 1px solid black;
+        background-color: transparent;
+        border-radius: 0px 0px 25px 25px; 
+        height: 500px;
+
+    }
+    
+    #left-one {
+        background-color: transparent;
+    }
+    
+    #left-two {
+        background-color: transparent;
+    }
+    
+    #left-three {
+        background-color: transparent;
+    }
+    
+    #left-four {
+        background-color: transparent;
+    }
+    
+    #left-five {
+        background-color: transparent;
+    }
+    
+    #left-six {
+        background-color: transparent;
+    }
+    
+    #left-seven {
+        background-color: transparent;
+    }
+    
+    #right-one {
+        background-color: transparent;
+    }
+    
+    #right-two {
+        background-color: transparent;
+    }
+    
+    #right-three {
+        background-color: transparent;
+    }
+    
+    #right-four {
+        background-color: transparent;
+    }
+    
+    #right-five {
+        background-color: transparent;
+    }
+    
+    #right-six {
+        background-color: transparent;
+    }
+    
+    #right-seven {
+        background-color: transparent;
+    }
+    
+    
+    
+    .even { 
+        background-color: #efeff1 ;
+    }
+    
+    .odd {
+        background-color: #faf5f5 ;
+    }
+    
+    button {
+        height: 25px;
+        width: 100px;
+        background-color: rgb(255, 255, 255);
+        font-weight: 800;
+        border: 1px solid black;
+        border-radius: 4px;
+        opacity: .5s;
+        margin: 25px;
+    }
+    
+    .bio {
+        height: 20px;
+        width: 90px;
+        background-color: rgb(224, 147, 147);
+        font-weight: 800;
+        border: 1px solid black;
+        border-radius: 4px;
+        opacity: .5s;
+        margin: 5px;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    #baseball-button {
+        display: none;
+    }
+
+    #animate-button {
+        display: none;
+        opacity: .3;
+        background-color: transparent;
+    }
+    
+    #specific-match {
+        display: none;
+    }
+    
+    
+    .matchup {
+        display: block;
+        height: 25%;
+        background-color: rgb(227, 231, 230);
+    }
+    
+    button:hover {
+        background-color: rgb(59, 65, 63);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    button:active {
+        background-color: rgb(0, 255, 42);
+        color: black;
+    }
+    
+    .teams {
+        padding-right: 180px;
+    }
+    
+    
+    
+    #end-one {
+        border-right: 2px solid black;
+        height: 100%;
+        display: inline-block;
+        font-size: larger;
+        white-space: nowrap;
+    }
+    
+    #end-one th {
+        background-color: rgb(156, 115, 168);
+        padding-left: 10px;
+    }
+    
+    #end-one td {
+        background-color: #be9abb;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+    
+    
+    #first-playoff-row {
+        background-color: transparent;
+    }
+    
+    #first-playoff-row table {
+    
+        border-right: 2px solid black;
+        border-bottom: 1px solid grey;
+        border-top: 1px solid grey;
+        height: 100%;
+        display: inline-block;
+        font-size: larger;
+        white-space: nowrap;
+    }
+    
+    
+    #first-playoff-row th {
+        background-color: rgb(247, 239, 239);
+        padding-left: 10px;
+    }
+    
+    #first-playoff-row td {
+        background-color: #efeff1;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+    
+    #second-playoff-row {
+        background-color: transparent;
+    }
+    
+    #second-playoff-row table {
+    
+        border-right: 2px solid black;
+        border-bottom: 1px solid grey;
+        border-top: 1px solid grey;
+        height: 100%;
+        display: inline-block;
+        font-size: larger;
+        white-space: nowrap;
+    }
+    
+    
+    #second-playoff-row th {
+        background-color: rgb(247, 239, 239);
+        padding-left: 10px;
+    }
+    
+    #second-playoff-row td {
+        background-color: #efeff1;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+    
+    #third-playoff-row {
+        background-color: transparent;
+    }
+    
+    #third-playoff-row table {
+    
+        border-right: 2px solid black;
+        border-bottom: 1px solid grey;
+        border-top: 1px solid grey;
+        height: 100%;
+        display: inline-block;
+        font-size: larger;
+        white-space: nowrap;
+    }
+    
+    
+    #third-playoff-row th {
+        background-color: rgb(247, 239, 239);
+        padding-left: 10px;
+    }
+    
+    #third-playoff-row td {
+        background-color: #efeff1;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+    
+    #fourth-playoff-row {
+        background-color: transparent;
+    }
+    
+    #fourth-playoff-row table {
+    
+        border-right: 2px solid black;
+        border-bottom: 1px solid grey;
+        border-top: 1px solid grey;
+        height: 100%;
+        display: inline-block;
+        font-size: larger;
+        white-space: nowrap;
+    }
+    
+    
+    #fourth-playoff-row th {
+        background-color: rgb(247, 239, 239);
+        padding-left: 10px;
+    }
+    
+    #fourth-playoff-row td {
+        background-color: #efeff1;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+    
+    
+    #playoff-button {
+        margin-top: 80px;
+        border: 2px solid black;
+        display: none;
+    }
+    
+    #winner-spot {
+        position: absolute;
+        right: 150px;
+        margin-top: 50px;
+        border: 0;
+        background-color: transparent;
+        display: none;
+        color: rgb(159, 112, 163)
+    }
+    
+    #winner-spot font {
+        background-color: transparent;
+        font-size: 70%; 
+        color: rgb(198, 156, 211);
+    }
+    
+    .matchup-box-container {
+        
+        position: relative;
+    
+    }
+    
+    #matchup-left-container {
+        float: left;
+    }
+    
+    #matchup-right-container {
+        float: right;
+    }
+    
+    
+    .matchup-box {
+        background-color: #D9FDFF;
+        height: 50%;
+        width: 100%;
+        text-align: center;
+        font-size: x-large;
+        position: relative;
+    
+    }
+    
+    
+    
+    .box-button {
+        height: 20px;
+        width: 100px;
+        background-color: rgb(116, 126, 143);
+        color: white;
+        font-weight: 800;
+        border: 1px solid black;
+        border-radius: 4px;
+        margin: 25px;
+    }
+    
+    #score-one {
+        background-color: transparent;
+        text-align: right;
+        font-size: x-large;
+        position: inline-block;
+        margin-right: 50%;
+        margin-top: 80px;
+    }
+    
+    #score-one-side font {
+        position: absolute;
+        background-color: transparent;
+        margin-left: 40px;
+        width: 50px;
+    }
+    
+    #score-two-side font {
+        position: absolute;
+        background-color: transparent;
+        margin-left: 40px;
+        width: 50px;
+    }
+    
+    #score-three-side font {
+        position: absolute;
+        background-color: transparent;
+        margin-left: 40px;
+        width: 50px;
+    }
+    
+    #score-four-side font {
+        position: absolute;
+        background-color: transparent;
+        margin-left: 40px;
+        width: 50px;
+    }
+    
+    #games-one {
+        background-color: transparent;
+        text-align: right;
+        color: grey;
+        position: absolute;
+        font-size: x-small;
+        top: 15px;
+        right: 15px;
+    
+    }
+    
+    #games-two {
+        background-color: transparent;
+        text-align: right;
+        color: grey;
+        position: absolute;
+        font-size: x-small;
+        top: 15px;
+        right: 15px;
+    
+    }
+    
+    #games-three {
+        background-color: transparent;
+        text-align: right;
+        color: grey;
+        position: absolute;
+        font-size: x-small;
+        top: 15px;
+        right: 15px;
+    
+    }
+    
+    #games-four {
+        background-color: transparent;
+        text-align: right;
+        color: grey;
+        position: absolute;
+        font-size: x-small;
+        top: 15px;
+        right: 15px;
+    
+    }
+    
+    #score-one-side {
+        background-color: transparent;
+        text-align: right;
+        font-size: x-large;
+        position: absolute;
+        top: 80px;
+        right: 225px;
+    }
+    
+    #score-two-side {
+        background-color: transparent;
+        text-align: right;
+        font-size: x-large;
+        position: absolute;
+        top: 80px;
+        right: 225px;
+    }
+    
+    #score-three-side {
+        background-color: transparent;
+        text-align: right;
+        font-size: x-large;
+        position: absolute;
+        top: 80px;
+        right: 225px;
+    }
+    
+    #score-four-side {
+        background-color: transparent;
+        text-align: right;
+        font-size: x-large;
+        position: absolute;
+        top: 80px;
+        right: 225px;
+    }
+    
+    #best-one {
+        background-color: transparent;
+        font-size: large;
+        color: gray;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+    }
+    
+    #best-two {
+        background-color: transparent;
+        font-size: large;
+        color: gray;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+    }
+    
+    #best-three {
+        background-color: transparent;
+        font-size: large;
+        color: gray;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+    }
+    
+    #best-four {
+        background-color: transparent;
+        font-size: large;
+        position: absolute;
+        color: gray;
+        top: 25px;
+        left: 25px;
+    }
+    
+    .boxscore-p {
+        background-color: transparent;
+        color: grey;
+        border: none;
+        cursor: pointer;
+    }
+    
+    
+    #cover-left {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgb(233, 254, 255);
+        font-size: 68%;
+        z-index: -1;
+    
+    }
+    
+    #cover-right {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        background-color: rgb(233, 254, 255);
+        font-size: 68%;
+        z-index: -1;
+    
+    }
+    
+    
+    #cover-right font {
+        margin-right: 50px;
+        background-color: transparent;
+        position: absolute;
+        font-size: x-large;
+        top: 125px;
+        right: 30px;
+    }
+    
+    
+    #cover-right button {
+        background-color: transparent;
+        border-color: rgb(204, 204, 204);
+        color: rgb(143, 143, 143);
+        position: absolute;
+        bottom: 100px;
+        right: 40px;
+    }
+    
+    #cover-right th {
+        background-color: rgb(233, 254, 255);
+    }
+    
+    #cover-right td {
+        background-color: rgb(233, 254, 255);
+    }
+    
+    #cover-right table {
+        background-color: rgb(233, 254, 255);
+        margin-left: 15px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #cover-left font {
+        margin-right: 50px;
+        background-color: transparent;
+        position: absolute;
+        font-size: x-large;
+        top: 125px;
+        right: 30px;
+    }
+    
+    #cover-left button {
+        background-color: transparent;
+        border-color: rgb(204, 204, 204);
+        color: rgb(143, 143, 143);
+        position: absolute;
+        bottom: 100px;
+        right: 40px;
+    }
+    
+    #cover-left th {
+        background-color: rgb(233, 254, 255);
+    }
+    
+    #cover-left td {
+        background-color: rgb(233, 254, 255);
+    }
+    
+    #cover-left table {
+        background-color: rgb(233, 254, 255);
+        margin-left: 15px;
+    }
+    
+    
+    
+    #match-repo-game {
+        background-color: transparent;
+        position: absolute;
+        font-size: medium;
+        top: 15px;
+        left: 15px;
+        color: rgb(90, 90, 90);
+    }
+    
+    #match-repo-boxscore {
+        background-color: transparent;
+        position: absolute;
+        margin-top: 15px;
+        margin-right: -30px;
+        top: 0px;
+    }
+    
+    
+    #clean {
+        background-color: rgb(233, 254, 255);
+        text-align: left;
+        position: relative;
+        font-size: x-small;
+        margin-top: 25px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #clean font {
+        font-size: small;
+        margin: 0;
+        position: relative;
+        background-color: transparent;
+        text-align: left;
+        top: 0px;
+        right: 0px;
+        height: 0px;
+    }
+    
+    
+    #baseball-table {
+        cursor: pointer;
+    }
+    
+    .header-sort {
+        cursor: pointer;
+    }
+    
+    #table-two {
+        display: none;   
+        border-collapse: collapse; 
+        height: 950px;
+    }
+    
+    #table-two td {
+        font-size: small;
+        background-color: antiquewhite;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        margin: 1px;
+        padding: 1px;
+    }
+    
+    #table-two font {
+        background-color: transparent;
+    }
+    
+    #table-two b {
+        background-color: transparent;
+    }
+    
+
+
+    .test-space {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: brown;
+        width: 1200px;
+        height: 2000px;
+    }
+    
+    
+    
+    
+    
+    .field {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: bisque;
+        height: 150px;
+        width: 150px;
+        border-right: 5px solid black;
+    }
+    
+    #outfield {
+        position: absolute;
+        background-color: rgb(110, 194, 110);
+        border: 1px solid whitesmoke;
+        height: 500px;
+        width: 500px;
+        transform: rotate(45deg);
+        margin: 300px;
+        border-radius: 100% 0px 0px 0px;
+    
+    }
+    
+    #fixed {
+        position: relative;
+        width: 1088px;
+    }
+    
+    #batter {
+        position: absolute;
+        top: 900px;
+        right: 550px;
+        color: rgb(224, 215, 93);
+        background-color: transparent;
+    }
+    
+    #fb-runner {
+        position: absolute;
+        top: 800px;
+        right: 350px;
+        color: rgb(224, 215, 93);
+        background-color: transparent;
+    }
+    
+    #sb-runner {
+        position: absolute;
+        top: 670px;
+        right: 520px;
+        color: rgb(224, 215, 93);
+        background-color: transparent;
+    }
+    
+    #tb-runner {
+        position: absolute;
+        top: 800px;
+        right: 670px;
+        color: rgb(224, 215, 93);
+        background-color: transparent;
+    }
+    
+    #catcher {
+        position: absolute;
+        top: 930px;
+        right: 520px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #pitcher {
+        position: absolute;
+        top: 790px;
+        right: 520px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #first-baseman {
+        position: absolute;
+        top: 760px;
+        right: 450px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #second-baseman {
+        position: absolute;
+        top: 700px;
+        right: 480px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #third-baseman {
+        position: absolute;
+        top: 760px;
+        right: 580px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #shortstop {
+        position: absolute;
+        top: 700px;
+        right: 590px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #left-field {
+        position: absolute;
+        top: 600px;
+        right: 710px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #right-field {
+        position: absolute;
+        top: 600px;
+        right: 350px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #center-field {
+        position: absolute;
+        top: 500px;
+        right: 530px;
+        color: grey;
+        background-color: transparent;
+    }
+    
+    #hit-type-one {
+        position: absolute;
+        top: 700px;
+        right: 507px;
+        height: 205px;
+        border-left: 5px solid salmon;
+        transform: rotate(15deg);
+    }
+    
+    #hit-type-two {
+        position: absolute;
+        top: 660px;
+        right: 535px;
+        height: 240px;
+        border-left: 5px solid rgb(114, 250, 239);
+    }
+    
+    #hit-type-three {
+        position: absolute;
+        top: 675px;
+        right: 595px;
+        height: 240px;
+        transform: rotate(-30deg);
+        border-left: 5px solid rgb(237, 247, 101);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #hit-type-four {
+        position: absolute;
+        top: 505px;
+        right: 482px;
+        height: 400px;
+        border-left: 5px solid rgb(209, 17, 97);
+        transform: rotate(15deg);
+    }
+    
+    #hit-type-five {
+        position: absolute;
+        top: 502px;
+        right: 535px;
+        height: 400px;
+        border-left: 5px solid rgb(150, 114, 250);
+    }
+    
+    #hit-type-six {
+        position: absolute;
+        top: 527px;
+        right: 635px;
+        height: 400px;
+        transform: rotate(-30deg);
+        border-left: 5px solid rgb(40, 194, 26);
+    }
+    
+    #hit-type-seven {
+        position: absolute;
+        top: 305px;
+        right: 480px;
+        height: 600px;
+        transform: rotate(10deg);
+        border-left: 5px solid rgb(254, 255, 178);
+    }
+    
+    #hit-type-eight {
+        position: absolute;
+        top: 370px;
+        right: 345px;
+        height: 600px;
+        transform: rotate(40deg);
+        border-left: 5px solid rgb(254, 255, 178);
+    }
+    
+    #hit-type-nine {
+        position: absolute;
+        top: 310px;
+        right: 610px;
+        height: 600px;
+        transform: rotate(-14deg);
+        border-left: 5px solid rgb(254, 255, 178);
+    }
+    
+    
+    
+    #inning {
+        position: absolute;
+        background-color: transparent;
+        color: wheat;
+        top: 400px;
+        right: -350px;
+        font-size: large;
+        width: 500px;
+    }
+    
+    #at-bat {
+        position: absolute;
+        background-color: transparent;
+        color: rgb(202, 137, 148);
+        top: 800px;
+        right: 650px;
+        width: 200px;
+    }
+    
+    #outs {
+        position: absolute;
+        background-color: transparent;
+        color: rgb(202, 137, 148);
+        font-size: x-large;
+        top: 800px;
+        right: 250px;
+    }
+    
+    #team-scores {
+        position: absolute;
+        background-color: transparent;
+        color: rgb(230, 182, 182);
+        font-size: xx-large;
+        top: 300px;
+        left: 100px;
+    }
+    
+    #team-batting {
+        position: absolute;
+        background-color: transparent;
+        color: rgb(202, 137, 148);
+        font-size: large;
+        top: 820px;
+        left: 60px;
+    }
+    
+    #set-interval {
+        position: absolute;
+        background-color: transparent;
+        font-size: small;
+        top: 274px;
+        right: 150px;
+    }
+    
+    #exit-animate {
+        position: absolute;
+        background-color: transparent;
+        font-size: small;
+        top: 270px;
+        right:10px;
+    }
+    
+    #show-att {
+        cursor: pointer;
+    }
+    
+    #show-att:hover {
+        color: grey;
+    }
+    
+    #baseball-table:hover {
+        color: rgb(173, 173, 173);
+    }
+    
+    #header-hover:hover {
+        color: slateblue;
+    }
+    
+    #team-name:hover {
+        background-color: rgb(223, 223, 223);
+    }
+    
+    #highlight-top {
+        background-color: brown;
+    }
+    
+    #highlight-bottom {
+        background-color: transparent;
+    }
+    
+    
+    
+    }
