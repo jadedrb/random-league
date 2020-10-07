@@ -1,4 +1,4 @@
 ## Deployment Link:
 
-[Random League](standing-cable.surge.sh)
+[Random League](https://www.standing-cable.surge.sh/)
 
