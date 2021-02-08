@@ -12,6 +12,13 @@ Inspired by a childhood pastime of mine, done with paper and pencil. Name your t
 
 Teams and players that start off lucky gain skill points, increasing the likelihood of future luck. The luckier a team or player is, the more they have to lose against the unluckier teams. The opposite logic applies as well. 
 
+## Features
+
+* Stats leaderboard for every player on every team (hits, home runs, steals, etc.), including the ability to sort by highest in each category
+* Playoffs and special playoff bracket presentation
+* Match reports with a play-by-play breakdown of each game 
+* The ability to animate a game (or match report) on a 2D field. Speed it up or slow it down to your liking!
+
 ## Built With
 
 * HTML, CSS, and some good ol' fashion JavaScript
