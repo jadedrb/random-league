@@ -8,7 +8,11 @@ Simulate a quasi-baseball league with randomized results. My very first project 
 
 ## Description
 
-Inspired by a childhood pastime of mine, done with paper and pencil. Name your team then watch them climb the ranks or plummet to last place. Generate random results with random players and random stats. Teams and players that start off lucky gain skill points, increasing the likelihood of future luck. The luckier a team or player is, the more they have to lose against the unluckier teams. The opposite logic applies as well. 
+Inspired by a childhood pastime of mine, done with paper and pencil. Name your team then watch them climb the ranks or plummet to last place. Generate random results with random players and random stats. 
+
+HOW IT WORKS: 
+
+Teams and players that start off lucky gain skill points, increasing the likelihood of future luck. The luckier a team or player is, the more they have to lose against the unluckier teams. The opposite logic applies as well. 
 
 ## Built With
 
@@ -21,7 +25,7 @@ Inspired by a childhood pastime of mine, done with paper and pencil. Name your t
 
 ## Deployed Link 
 
-[Random League](https://www.standing-cable.surge.sh/)
+Check out [Random League](https://www.standing-cable.surge.sh/)!
 
 
 
