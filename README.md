@@ -25,7 +25,7 @@ Teams and players that start off lucky gain skill points, increasing the likelih
 
 ## Author
 
-* **Jade Del Rosario-Bell** (https://github.com/jadedrb/)
+* **[Jade Del Rosario-Bell](https://github.com/jadedrb/)**
 
 
 ## Deployed Link 
