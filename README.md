@@ -30,7 +30,7 @@ Teams and players that start off lucky gain skill points, increasing the likelih
 
 ## Deployed Link 
 
-Check out [Random League](https://www.standing-cable.surge.sh/)!
+Check out [Random League](https://jadedrb.github.io/random-league/)!
 
 
 
