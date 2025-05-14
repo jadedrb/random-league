@@ -4,6 +4,9 @@
 }
 
 @media screen and (min-width: 1071px) {  /* Desktop version */
+      #bio-button, #bio-button-change {
+        width: initial;
+    }
 
 .main {
     background-color: rgb(59, 65, 63);

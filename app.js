@@ -313,7 +313,7 @@ function clickStart() {
             startButton.style.paddingRight = '10px'
         }
         let games = team1.history.matches.length
-        startButton.textContent = `Play Game ${games < 30 ? games : 30}`
+        startButton.textContent = `Play Game ${games < 30 ? games + 1 : 30}`
         let container = startButton.parentElement
 
         if (container.children.length === 1 && playerOne) {
