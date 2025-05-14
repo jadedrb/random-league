@@ -1350,7 +1350,9 @@ button:active {
 
 @media screen and (max-width: 1070px) and (min-width: 651px) {
 
-
+  #bio-button, #bio-button-change {
+        width: initial;
+    }
 
 .main {
     display: block;
@@ -4007,5 +4009,7 @@ button:active {
     }
     
     
-    
+   #bio-button, #bio-button-change {
+        width: initial;
+    }
     }

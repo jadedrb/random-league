@@ -294,7 +294,6 @@ function clickOriginal() {
     }
 }
 
-
 function clickStart() {
 
     orgOrBae == 0 ? orgOrBae = 1 : console.log(`Already set to ${orgOrBae}`)
@@ -307,6 +306,25 @@ function clickStart() {
         clickStartOne();
     } else {
         start();
+        let startButton = document.querySelector('#new-span > button')
+        if (startButton.textContent === 'Start') {
+            startButton.style.width = 'initial'
+            startButton.style.paddingLeft = '10px'
+            startButton.style.paddingRight = '10px'
+        }
+        let games = team1.history.matches.length
+        startButton.textContent = `Play Game ${games < 30 ? games : 30}`
+        let container = startButton.parentElement
+
+        if (container.children.length === 1 && playerOne) {
+            let buttonNew = document.createElement('button')
+            buttonNew.textContent = 'Animate Next Game'
+            buttonNew.style.width = 'initial'
+            buttonNew.style.paddingLeft = '10px'
+            buttonNew.style.paddingRight = '10px'
+            buttonNew.addEventListener('click', () => { start(); animateWindow(true); })
+            container.appendChild(buttonNew)
+        }
     }
 }
 
@@ -8103,7 +8121,26 @@ const helpColorSystem = () => {
 
 let currentMatchReport;
 
-const animateWindow = () => {
+const animateWindow = (origin) => {
+    
+    // origin is true if "Animate Next Game" button is pressed
+    if (origin) {
+        let chooseTeam = playerOne
+        if (playerTwo) {
+            let typedTeam = prompt("Which team's game did you want to watch?")
+            let findTeamFirst = teams.find(t => t.name.toLowerCase() === typedTeam.toLowerCase())
+            if (findTeamFirst) {
+                chooseTeam = findTeamFirst.name
+            }
+        }
+        let { name, history } = teams.find(t => t.name === chooseTeam)
+        let { matches, reports } = history
+        currentMatchReport = []
+        currentMatchReport.push(name)
+        currentMatchReport.push(matches[reports.length - 1].split(" ")[2])
+        currentMatchReport.push(reports[reports.length - 1].split(" "))
+    }
+
     if (team1.history.matches.length == 0 || currentMatchReport.length !== 3) return
     let testSpace = document.getElementById("test-space").style.display
     let teamScores = document.getElementById('team-scores')
