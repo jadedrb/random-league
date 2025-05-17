@@ -1,7 +1,7 @@
 
 let teamEx = ["Bob", "Henry", "George", "Ico", "Mooky", "Hendo", "Mark", "Jeter", "Vlad", "Marco",
               "Iggy", "Willy", "Clover", "Pop", "Franklin", "Common", "Callum", "Geo", "Ken", "Andy",
-              "Oliver", "Reece", "Kyle", "Kyrie", "William", "Mariano", "Jose", "Jade", "Mike", "Cam",
+              "Oliver", "Reece", "Kyle", "Kyrie", "William", "Mariano", "Jose", "Yunjin", "Mike", "Cam",
               "Wax", "Rafael", "Sammy", "Pablo", "Ichi", "Clark", "Walter", "Bob", "Lando", "Bron",
               "Zion", "Zachary", "Lucas", "Eli", "Job", "Ezra", "Lincoln", "Miles", "Brandon", "Kelly",
 

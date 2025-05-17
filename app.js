@@ -923,6 +923,7 @@ function showAtt(player) {
 }
 
 function playerAwards() {
+    let theWorst;
     let allStar = false;
     let mvp = false;
     let cyYoung = false;
@@ -948,8 +949,10 @@ function playerAwards() {
                     return (b.attributes[0] + b.attributes[1] + b.attributes[2] + b.attributes[3]) - (a.attributes[0] + a.attributes[1] + a.attributes[2] + b.attributes[3])
                
                 })
-                //console.log(actualArr)
+                theWorst = actualArr.at(-1).name
                 allStar = actualArr[0].name;
+                console.log(`Most Skilled: ${allStar} (${actualArr[0].attributes[0] + actualArr[0].attributes[1] + actualArr[0].attributes[2] + actualArr[0].attributes[3]})`)
+                console.log(`Least Skilled: ${theWorst} (${actualArr.at(-1).attributes[0] + actualArr.at(-1).attributes[1] + actualArr.at(-1).attributes[2] + actualArr.at(-1).attributes[3]})`)
             }
 
             if (cyYoung == false) {
@@ -1040,6 +1043,152 @@ function playerAwards() {
 
         return award
     }
+}
+
+// NEW (ANALYZE MATCH REPORT)
+function analyzeMatchReport() {
+
+    const analysis = {
+        longestGame: {
+            innings: 9,
+            matchup: 'none'
+        },
+        highestScoring: {
+            score: 0,
+            matchup: 'none'
+        },
+        hitsInGame: {
+            hits: 0,
+            player: '',
+            team: '',
+            matchup: 'none',
+            players: {}
+        },
+        perfectGame: {
+            matchup: 'none',
+            player: ''
+        },
+        hitForCycle: {
+            matchup: [],
+            player: [],
+            players: {}
+        }
+    }
+
+    for (let team of teams) {
+
+        for (let j = 0; j < team.history.reports.length; j++) {
+            let perfectGame = false
+            let report = team.history.reports[j]
+            let gameLength = Number(report.split('.').filter(s => s.includes('Inning')).map(i => i.replace('Inning ', '')).at(-1).trim())
+            let match = team.history.matches[j]
+            if (analysis.longestGame.innings < gameLength) {
+                analysis.longestGame.innings = gameLength
+                analysis.longestGame.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
+            }
+
+            if (match.split(' ').at(-1).split('-')[1] === '0') {
+                console.log('potential perfect game: ' + match + ' by ' + team.players.position1.name)
+                perfectGame = true
+            }
+
+            let hits = report.split(/[.!]/).filter(m => m.includes('single') || m.includes('double') || m.includes('triple') || m.includes('HR'))
+    
+            for (let hit of hits) {
+                let player = hit.trim().split(' ')[0]
+                if (analysis.hitsInGame.players[player]) {
+                    analysis.hitsInGame.players[player]++
+                    if (analysis.hitsInGame.players[player] > analysis.hitsInGame.hits) {
+                        analysis.hitsInGame.hits = analysis.hitsInGame.players[player]
+                        analysis.hitsInGame.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
+                        
+                        let matchUpTeams = [analysis.hitsInGame.matchup.split(' vs ')[0], analysis.hitsInGame.matchup.split(' vs ')[1].split(' ')[0]]
+                        let bothTeamsInQuestion = teams.filter(t => t.name.includes(matchUpTeams[0]) || t.name.includes(matchUpTeams[1]))
+                        let playersOnBothTeams = bothTeamsInQuestion.map(t => Object.values(t.players)).flat(1)
+
+                        playersOnBothTeams.forEach((p,i) => {
+                            if (p.name.includes(player)) {
+                                analysis.hitsInGame.player = p.name
+                                if (i < 9) {
+                                    analysis.hitsInGame.team = bothTeamsInQuestion[0].name
+                                } else {
+                                    analysis.hitsInGame.team = bothTeamsInQuestion[1].name
+                                }
+                            }
+                        })
+                    }
+                } else {
+                    analysis.hitsInGame.players[player] = 1
+                }
+
+                if (perfectGame) {
+                        let teamToCheck = match.split(' vs ')[1].split(' ')[0]
+                        let teamsInQuestion = teams.find(t => t.name.includes(teamToCheck))
+                        let playersOnTeam = Object.values(teamsInQuestion.players).flat(1)
+
+                        perfectGame = playersOnTeam.every(p => p.name.includes(player))
+                }
+
+                // hit for cycle
+                if (!analysis.hitForCycle.players[player]) {
+                    analysis.hitForCycle.players[player] = {}
+                }
+
+                if (!analysis.hitForCycle.players[player].single && hit.includes('single')) {
+                        analysis.hitForCycle.players[player].single = true
+                } else if (!analysis.hitForCycle.players[player].double && hit.includes('double')) {
+                        analysis.hitForCycle.players[player].double = true  
+                } else if (!analysis.hitForCycle.players[player].triple && hit.includes('triple')) {
+                        analysis.hitForCycle.players[player].triple = true  
+                }  else if (!analysis.hitForCycle.players[player].hr && hit.includes('HR')) {
+                        analysis.hitForCycle.players[player].hr = true  
+                } 
+                
+            }
+
+            if (perfectGame) {
+                console.log('PERFECT!')
+                analysis.perfectGame.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
+                analysis.perfectGame.player = team.players.position1.name
+                perfectGame = false
+            }
+
+            for (let player in analysis.hitForCycle.players) {
+                 if (
+                    analysis.hitForCycle.players[player].single &&
+                    analysis.hitForCycle.players[player].double &&
+                    analysis.hitForCycle.players[player].triple &&
+                    analysis.hitForCycle.players[player].hr &&
+                    !match.includes('L')
+                    //!analysis.hitForCycle.player.includes(player)
+                 ) {
+                    analysis.hitForCycle.player.push(player)
+                    analysis.hitForCycle.matchup.push(match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs'))
+                 }
+            }
+
+            analysis.hitForCycle.players = {}
+
+            analysis.hitsInGame = {
+                hits: analysis.hitsInGame.hits,
+                player: analysis.hitsInGame.player,
+                team: analysis.hitsInGame.team,
+                matchup: analysis.hitsInGame.matchup,
+                players: {}
+            }
+        }
+
+        for (let match of team.history.matches) {
+            let score = Math.max(...match.split(' ').at(-1).split('-'))
+            if (analysis.highestScoring.score < score) {
+                analysis.highestScoring.score = score
+                analysis.highestScoring.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
+            }
+        }
+
+    }
+
+    return analysis
 }
 
 let checkForAwards = playerAwards()
