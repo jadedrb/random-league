@@ -1064,6 +1064,20 @@ function analyzeMatchReport() {
             matchup: 'none',
             players: {}
         },
+        hrsInGame: {
+            hrs: 0,
+            player: '',
+            team: '',
+            matchup: 'none',
+            players: {}
+        },
+        hrStreak: {
+            hrs: 0,
+            player: '',
+            matchup: '',
+            team: '',
+            players: {}
+        },
         perfectGame: {
             matchup: 'none',
             player: ''
@@ -1087,39 +1101,85 @@ function analyzeMatchReport() {
                 analysis.longestGame.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
             }
 
+            // potential perfect game
             if (match.split(' ').at(-1).split('-')[1] === '0') {
-                console.log('potential perfect game: ' + match + ' by ' + team.players.position1.name)
+                // console.log('potential perfect game: ' + match + ' by ' + team.players.position1.name)
                 perfectGame = true
             }
 
             let hits = report.split(/[.!]/).filter(m => m.includes('single') || m.includes('double') || m.includes('triple') || m.includes('HR'))
-    
-            for (let hit of hits) {
-                let player = hit.trim().split(' ')[0]
-                if (analysis.hitsInGame.players[player]) {
-                    analysis.hitsInGame.players[player]++
-                    if (analysis.hitsInGame.players[player] > analysis.hitsInGame.hits) {
-                        analysis.hitsInGame.hits = analysis.hitsInGame.players[player]
-                        analysis.hitsInGame.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
+            let hrs = report.split(/[.!]/).filter(m => m.includes('HR'))
+
+
+            function xInGame(x, xObj, player, xKey) {
+                if (xObj.players[player]) {
+                    xObj.players[player]++
+                    if (xObj.players[player] > xObj[xKey]) {
+                        xObj[xKey] = xObj.players[player]
+                        xObj.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
                         
-                        let matchUpTeams = [analysis.hitsInGame.matchup.split(' vs ')[0], analysis.hitsInGame.matchup.split(' vs ')[1].split(' ')[0]]
+                        let matchUpTeams = [xObj.matchup.split(' vs ')[0], xObj.matchup.split(' vs ')[1].split(' ')[0]]
                         let bothTeamsInQuestion = teams.filter(t => t.name.includes(matchUpTeams[0]) || t.name.includes(matchUpTeams[1]))
                         let playersOnBothTeams = bothTeamsInQuestion.map(t => Object.values(t.players)).flat(1)
 
                         playersOnBothTeams.forEach((p,i) => {
                             if (p.name.includes(player)) {
-                                analysis.hitsInGame.player = p.name
+                                xObj.player = p.name
                                 if (i < 9) {
-                                    analysis.hitsInGame.team = bothTeamsInQuestion[0].name
+                                    xObj.team = bothTeamsInQuestion[0].name
                                 } else {
-                                    analysis.hitsInGame.team = bothTeamsInQuestion[1].name
+                                    xObj.team = bothTeamsInQuestion[1].name
                                 }
                             }
                         })
                     }
                 } else {
-                    analysis.hitsInGame.players[player] = 1
+                    xObj.players[player] = 1
                 }
+            }
+   
+            for (let hr of hrs) {
+                let player = hr.trim().split(' hit')[0]
+
+                // hrs in a game
+                xInGame(hr, analysis.hrsInGame, player, 'hrs')
+
+                // hr streak 
+                if (analysis.hrStreak.players[player]) {
+                    if (!analysis.hrStreak.players[player].done) {
+                        analysis.hrStreak.players[player].hrs++
+                        analysis.hrStreak.players[player].done = true
+                        console.log(player, analysis.hrStreak.players[player].hrs)
+                    }
+                    if (analysis.hrStreak.hrs < analysis.hrStreak.players[player].hrs) {
+                        analysis.hrStreak.hrs = analysis.hrStreak.players[player].hrs
+                        analysis.hrStreak.player = player
+                        analysis.hrStreak.matchup = match.includes('W') ? match.replace('W', team.name) : match.replace('L', team.name).replace('to', 'vs')
+                    }
+                } else {
+                    analysis.hrStreak.players[player] = {
+                        player,
+                        hrs: 1,
+                        done: true
+                    }
+                }
+            }
+
+            for (let p in analysis.hrStreak.players) {
+
+                if (analysis.hrStreak.players[p].done) {
+                    analysis.hrStreak.players[p].done = false
+                } else {
+                    analysis.hrStreak.players[p].hrs = 0
+                }
+     
+            }
+
+            for (let hit of hits) {
+                let player = hit.trim().split(' ')[0]
+
+                // hits in a game
+                xInGame(hit, analysis.hitsInGame, player, 'hits')
 
                 if (perfectGame) {
                         let teamToCheck = match.split(' vs ')[1].split(' ')[0]
@@ -1176,6 +1236,15 @@ function analyzeMatchReport() {
                 matchup: analysis.hitsInGame.matchup,
                 players: {}
             }
+
+            analysis.hrsInGame = {
+                hrs: analysis.hrsInGame.hrs,
+                player: analysis.hrsInGame.player,
+                team: analysis.hrsInGame.team,
+                matchup: analysis.hrsInGame.matchup,
+                players: {}
+            }
+
         }
 
         for (let match of team.history.matches) {
@@ -1187,6 +1256,10 @@ function analyzeMatchReport() {
         }
 
     }
+
+    delete analysis.hrsInGame.players
+    delete analysis.hitsInGame.players
+    delete analysis.hrStreak.players
 
     return analysis
 }
